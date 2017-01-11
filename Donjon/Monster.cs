@@ -1,7 +1,13 @@
 ﻿using System;
 namespace Donjon
 {
-    public abstract class Creature
+    interface IVisible
+    {
+        string MapSymbol { get; }
+        ConsoleColor Color { get; }
+    }
+
+    public abstract class Creature : IVisible
     {
         public string MapSymbol { get; }
         public ConsoleColor Color { get; protected set; }
@@ -10,7 +16,6 @@ namespace Donjon
         {
             MapSymbol = mapSymbol;
         }
-
     }
 
     public abstract class Monster : Creature

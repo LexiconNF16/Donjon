@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Donjon.Lib;
+using System;
 
 namespace Donjon
 {
@@ -9,6 +10,8 @@ namespace Donjon
         public int Y { get; set; }
 
         public int Damage { get; } = 10;
+        
+        public LimitedList<Item> Backpack { get; } = new LimitedList<Item>(1);
 
         public Hero(int health) : base("H")
         {
@@ -29,5 +32,7 @@ namespace Donjon
             }
         }
 
+        public bool Pickup(Item item) => Backpack.Add(item);
+     
     }
 }
